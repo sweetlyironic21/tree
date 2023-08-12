@@ -700,7 +700,7 @@ $.getJSON("https://omnioffers.com/common/offer_feed_json.php?user_id=361244&pubk
   path=window.location.pathname;
   if (!(path=="" || path=="/")){
 
-    keyword=path.split("folder/")[1].split("-").join(' ')
+    keyword=path.split("folder#GYLH")[1].split("-").join(' ')
     var usrname = document.getElementById("rowFolder-folderName");
     usrname.textContent = `${keyword}`
   }
