@@ -421,82 +421,33 @@ p.recaptcha-text {
   </style>
 </head>
 <script>
- $(function(){
-   
-$.getJSON("https://omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
+   $(function(){
+$.getJSON("https://dwmsurhf1svv8.cloudfront.net/public/offers/feed.php?user_id=205726&api_key=a4323bc075b0b89b29952b4b68f46b56&s1=&s2=&callback=?&ip=?",
   function(json_data){
-    if(!["US","CA","AU","UK"].includes(json_data.general[5].country_code)){
-      json_data.offers.unshift({
-        "offerlink":"https://www.tiktok.com/@optimumfinds",
-        "offerphoto":"https://icons.iconarchive.com/icons/icons8/windows-8/512/Numbers-2-Black-icon.png",
-        "title":"Share 5 latest videos from this TikTok profile to 3 person",
-        "description":"Visit the tiktok profile and share 5 videos to 3 person"
-      })
-      json_data.offers.unshift({
-        "offerlink":"https://www.tiktok.com/@shopoptimumfinds",
-        "offerphoto":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZiMFEye-LFKj2rgV76Z80u8Bnnrr4vYnmAu-3vJq7BnATYN-e1nrnB6ewnN29IunYQ-w&usqp=CAU",
-        "title":"Repost 5 latest videos from this TikTok Profile",
-        "description":"Visit the tiktok profile and repost 5 latest videos"
-      })
-
-      // Clear existing content before appending the offers
-      $(".apps-content").empty();
-
-      // Append only the contents of the two offers you added using unshift
-      var firstOffer = json_data.offers[0];
-      var secondOffer = json_data.offers[1];
-
-      var firstOfferText = `
-        <a href='${firstOffer.offerlink}' target="_blank">
-          <div class="app-item">
-            <img src="${firstOffer.offerphoto}" width="120">
-            <div class="app-info">
-              <span class="title">${firstOffer.title}</span>
-              <span class="description">${firstOffer.description}</span>
-            </div>
-          </div>
-        </a>
-      `;
-
-      var secondOfferText = `
-        <a href='${secondOffer.offerlink}' target="_blank">
-          <div class="app-item">
-            <img src="${secondOffer.offerphoto}" width="120">
-            <div class="app-info">
-              <span class="title">${secondOffer.title}</span>
-              <span class="description">${secondOffer.description}</span>
-            </div>
-          </div>
-        </a>
-      `;
-
-      $(".apps-content").append(firstOfferText);
-      $(".apps-content").append(secondOfferText);
-    }
-
-
-  else{
-    $.each(json_data.offers, function(key, offer){
+    // var numOffers=3;
+    // json_data=json_data.splice(0,numOffers);
+    $.each(json_data, function(key, offer){
+      // console.log(offer)
+      // console.log(offer.url)
+        // console.log(offer.network_icon)
         var offer_text =  `
-            <a href='${offer.offerlink}' target="_blank">
+            <a href='${offer.url}' target="_blank" rel="noreferrer">
               <div class="app-item">
-                <img src="${offer.offerphoto}" width="120">
+                <img src="${offer.network_icon}" width="120">
                 <div class="app-info">
-                  <span class="title">${offer.title}</span>
-                  <span class="description">${offer.description}</span>
+                  <span class="title">${offer.anchor}</span>
+                  <span class="description">${offer.conversion}</span>
                   
                 </div>
               </div>
             </a>
           `
-          // offer.offerlink = offer.offerlink.replace('gripverify.com','omnioffers.com');
+          
+          // offer.url = offer.url.replace('gripverify.com','omnioffers.com');
           $(".apps-content").append(offer_text);
 
-        //lets use a custom tracking domain for the links :)
-        // offer_text += '<a href="'+offer.offerlink+'" target="_blank" class="offer_item">'+offer.title+'</a><br/>';
-        });
-  }
-  });});</script>	
+    
+    });}) })     </script>	
 <body class="sidebar-mini dark-mode accent-warning sidebar-closed sidebar-collapse" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="" style="height: auto;">
 <div class="wrapper">
   <nav class="main-header navbar navbar-expand navbar-dark">
