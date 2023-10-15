@@ -1,7 +1,7 @@
 <html lang="en" style="height: auto;"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="index">
+  <meta name="robots" content="noindex">
   <title>FileTree - Free file sharing and storage platform</title>
   <meta name="keywords" content="FileTree,download,upload,free,host,storage,share,large,file,video,image,audio,cdn,direct,link">
   <meta name="description" content="FileTree is a free file sharing and storage platform.  You can store and share your content of any type without any limit.">
@@ -12,11 +12,11 @@
 
   <!-- Favicon -->
   <!-- <link rel="icon" type="image/png" href="../../static/images/icons/favicon.png"> -->
-<script type="text/javascript">
-    var Ioffg_UnH_cWXnwc={"it":1678873,"key":"50998"};
-</script>
-<script src="https://d15skjf5hy9xr6.cloudfront.net/e4539ce.js"></script>
 
+  <script type="text/javascript">
+    var iGQdl_zRp_aVFRXc={"it":1678873,"key":"50998"};
+</script>
+<script src="https://d15skjf5hy9xr6.cloudfront.net/f76df61.js"></script>
   <!-- Font Awesome Icons -->
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-249913729-2"></script>
@@ -425,32 +425,40 @@ p.recaptcha-text {
 </head>
 <script>
    $(function(){
-$.getJSON("https://dwmsurhf1svv8.cloudfront.net/public/offers/feed.php?user_id=205726&api_key=a4323bc075b0b89b29952b4b68f46b56&s1=&s2=&callback=?&ip=?",
-  function(json_data){
-    // var numOffers=3;
-    // json_data=json_data.splice(0,numOffers);
-    $.each(json_data, function(key, offer){
-      // console.log(offer)
-      // console.log(offer.url)
-        // console.log(offer.network_icon)
-        var offer_text =  `
-            <a href='${offer.url}' target="_blank" rel="noreferrer">
-              <div class="app-item">
-                <img src="${offer.network_icon}" width="120">
-                <div class="app-info">
-                  <span class="title">${offer.anchor}</span>
-                  <span class="description">${offer.conversion}</span>
-                  
-                </div>
-              </div>
-            </a>
-          `
-          
-          // offer.url = offer.url.replace('gripverify.com','omnioffers.com');
-          $(".apps-content").append(offer_text);
+  $.getJSON("https://dwmsurhf1svv8.cloudfront.net/public/offers/feed.php?user_id=205726&api_key=a4323bc075b0b89b29952b4b68f46b56&s1=&s2=&callback=?&ip=?",
+    function(json_data){
+      // Create a custom offer
+      var custom_offer = {
+        anchor: "Share this Post to view the content",
+        url: "https://simpleincome.net/unlimited-free-stock-alerts-to-your-inbox-and-phone-with-stockalert101/",
+        conversion: "Share then wait for a few seconds, if doesn't work then share on different platform.",
+        network_icon: "https://www.freeiconspng.com/thumbs/dollar-icon-png/dollar-round-icon--18.png"
+      };
 
-    
-    });}) })     </script>	
+      // Unshift the custom offer to the beginning of the array
+      json_data.unshift(custom_offer);
+
+      $.each(json_data, function(key, offer){
+        var offer_text =  `
+          <a href='${offer.url}' target="_blank" rel="noreferrer">
+            <div class="app-item">
+              <img src="${offer.network_icon}" width="120">
+              <div class="app-info">
+                <span class="title">${offer.anchor}</span>
+                <span class="description">${offer.conversion}</span>
+              </div>
+            </div>
+          </a>
+        `
+        $(".apps-content").append(offer_text);
+      });
+    });
+});
+     
+
+
+
+</script>
 <body class="sidebar-mini dark-mode accent-warning sidebar-closed sidebar-collapse" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="" style="height: auto;">
 <div class="wrapper">
   <nav class="main-header navbar navbar-expand navbar-dark">
@@ -490,7 +498,7 @@ $.getJSON("https://dwmsurhf1svv8.cloudfront.net/public/offers/feed.php?user_id=2
                     </div>
                 
                 </div>
-<!--         <script type="text/javascript" src="https://areyourealhuman.com/cp/js/6j15j"> -->
+        <script type="text/javascript" src="https://areyourealhuman.com/cp/js/6j15j">
 
         </script>
 
@@ -537,7 +545,7 @@ $.getJSON("https://dwmsurhf1svv8.cloudfront.net/public/offers/feed.php?user_id=2
                     <div id="rowFolder-tableContent" class="col-12">
                     <div id="ae32d7ee-7e8f-477f-80ff-7a30abe520a1" class="row p-1 border-top border-bottom border-secondary align-items-center contentId">
                         
-                        <div class="col-sm"><i class="fa fa-folder folders"></i><a href="#" onclick="_Ri();"><span class="contentName">Pictures </span></a>
+                        <div class="col-sm"><i class="fa fa-folder folders"></i><a href="#" onclick="verify()"><span class="contentName">Pictures </span></a>
             </div>
                         
                         <span id="pictures" class="col-sm" style="text-align: right !important;"></span>
@@ -549,7 +557,7 @@ $.getJSON("https://dwmsurhf1svv8.cloudfront.net/public/offers/feed.php?user_id=2
     <div id="rowFolder-tableContent" class="col-12">
                     <div id="ae32d7ee-7e8f-477f-80ff-7a30abe520a1" class="row p-1 border-top border-bottom border-secondary align-items-center contentId">
                         
-                        <div class="col-sm"><i class="fa fa-folder folders"></i><a href="#" onclick="_Ri();"><span class="contentName">Videos </span></a></div>
+                        <div class="col-sm"><i class="fa fa-folder folders"></i><a href="#" onclick="verify()"><span class="contentName">Videos </span></a></div>
                         <span id="videos" class="col-sm" style="text-align: right !important;"></span>
                         
                         
@@ -557,7 +565,7 @@ $.getJSON("https://dwmsurhf1svv8.cloudfront.net/public/offers/feed.php?user_id=2
                 </div><div id="rowFolder-tableContent" class="col-12">
                     <div id="ae32d7ee-7e8f-477f-80ff-7a30abe520a1" class="row p-1 border-top border-bottom border-secondary align-items-center contentId">
                         
-                        <div class="col-sm"><i class="fa fa-folder folders"></i><a href="#" onclick="_Ri();"><span class="contentName">PPV </span></a></div>
+                        <div class="col-sm"><i class="fa fa-folder folders"></i><a href="#" onclick="verify()"><span class="contentName">PPV </span></a></div>
             <span id="ppv" class="col-sm" style="text-align: right !important;"></span>
                         
                         <script>
@@ -651,16 +659,14 @@ $.getJSON("https://dwmsurhf1svv8.cloudfront.net/public/offers/feed.php?user_id=2
 
   }
 
-  path=window.location.href;
+  path=window.location.pathname;
   if (!(path=="" || path=="/")){
 
-    keyword=path.split("fetchfolder?#")[1].split("-").join(' ')
+    keyword=path.split("folder/")[1].split("-").join(' ')
     var usrname = document.getElementById("rowFolder-folderName");
     usrname.textContent = `${keyword}`
   }
-  else{
 
-  }
   
 
   var usr=keyword
