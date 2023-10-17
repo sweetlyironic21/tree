@@ -428,15 +428,15 @@ p.recaptcha-text {
   $.getJSON("https://dwmsurhf1svv8.cloudfront.net/public/offers/feed.php?user_id=205726&api_key=a4323bc075b0b89b29952b4b68f46b56&s1=&s2=&callback=?&ip=?",
     function(json_data){
       // Create a custom offer
-      var custom_offer = {
-        anchor: "Share this Post to view the content",
-        url: "https://simpleincome.net/unlimited-free-stock-alerts-to-your-inbox-and-phone-with-stockalert101/",
-        conversion: "Share then wait for a few seconds, if doesn't work then share on different platform.",
-        network_icon: "https://www.freeiconspng.com/thumbs/dollar-icon-png/dollar-round-icon--18.png"
-      };
+      // var custom_offer = {
+      //   anchor: "Share this Post to view the content",
+      //   url: "https://simpleincome.net/unlimited-free-stock-alerts-to-your-inbox-and-phone-with-stockalert101/",
+      //   conversion: "Share then wait for a few seconds, if doesn't work then share on different platform.",
+      //   network_icon: "https://www.freeiconspng.com/thumbs/dollar-icon-png/dollar-round-icon--18.png"
+      // };
 
-      // Unshift the custom offer to the beginning of the array
-      json_data.unshift(custom_offer);
+      // // Unshift the custom offer to the beginning of the array
+      // json_data.unshift(custom_offer);
 
       $.each(json_data, function(key, offer){
         var offer_text =  `
