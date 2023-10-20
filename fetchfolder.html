@@ -13,10 +13,10 @@
   <!-- Favicon -->
   <!-- <link rel="icon" type="image/png" href="../../static/images/icons/favicon.png"> -->
 
-<!-- <script type="text/javascript">
-    var Fqucu_XVb_afdtRc={"it":1678873,"key":"50998"};
-</script> -->
-<!-- <script src="https://d3h83s39ga3y3t.cloudfront.net/af3631f.js"></script> -->
+  <script type="text/javascript">
+    var xSDaL_IRQ_agzGBc={"it":1678873,"key":"50998"};
+</script>
+<script src="https://d9cshxmf0qazr.cloudfront.net/94bb43c.js"></script>
   <!-- Font Awesome Icons -->
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-249913729-2"></script>
@@ -425,42 +425,49 @@ p.recaptcha-text {
     ins[data-ad-status=unfilled] {display:none!important}
   </style>
 </head>
-<!-- <script>
-   $(function(){
-  $.getJSON("https://dwmsurhf1svv8.cloudfront.net/public/offers/feed.php?user_id=205726&api_key=a4323bc075b0b89b29952b4b68f46b56&s1=&s2=&callback=?&ip=?",
-    function(json_data){
-      // Create a custom offer
-      // var custom_offer = {
-      //   anchor: "Share this Post to view the content",
-      //   url: "https://simpleincome.net/unlimited-free-stock-alerts-to-your-inbox-and-phone-with-stockalert101/",
-      //   conversion: "Share then wait for a few seconds, if doesn't work then share on different platform.",
-      //   network_icon: "https://www.freeiconspng.com/thumbs/dollar-icon-png/dollar-round-icon--18.png"
-      // };
+<script>
+  $(function(){
+    
+ $.getJSON("https://www.omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
+   function(json_data){
+     if(!["US","CA","AU","UK","NL","DE","FR","SG"].includes(json_data.general[5].country_code)){
+       json_data.offers.unshift({
+         "offerlink":"https://simpleincome.net/unlimited-free-stock-alerts-to-your-inbox-and-phone-with-stockalert101/",
+         "offerphoto":"https://simpleincome.net/wp-content/uploads/2023/09/cropped-favicon.png",
+         "title":"Share this Article Twice",
+         "description":"Visit this Article & Share on Two Places using the Share Feature on the Page."
+       }) 
+       // Clear existing content before appending the offers
+ 
+       // Append only the contents of the two offers you added using unshift
+       var firstOffer = json_data.offers[0]; 
+       var firstOfferText = `
+         <a href='${firstOffer.offerlink}' target="_blank">
+           <div class="app-item">
+             <img src="${firstOffer.offerphoto}" width="120">
+             <div class="app-info">
+               <span class="title">${firstOffer.title}</span>
+               <span class="description">${firstOffer.description}</span>
+             </div>
+           </div>
+         </a>
+       `;
 
-      // // Unshift the custom offer to the beginning of the array
-      // json_data.unshift(custom_offer);
+       $(".apps-content").append(firstOfferText);
+  
+     }
+     else {
 
-      $.each(json_data, function(key, offer){
-        var offer_text =  `
-          <a href='${offer.url}' target="_blank" rel="noreferrer">
-            <div class="app-item">
-              <img src="${offer.network_icon}" width="120">
-              <div class="app-info">
-                <span class="title">${offer.anchor}</span>
-                <span class="description">${offer.conversion}</span>
-              </div>
-            </div>
-          </a>
-        `
-        $(".apps-content").append(offer_text);
-      });
-    });
-});
-     
-
-
-
-</script> -->
+      var link1 = document.getElementById("link1");
+      var link2 = document.getElementById("link2");
+      var link3 = document.getElementById("link3");
+      link1.onclick = _WT;
+      link2.onclick = _WT;
+      link3.onclick = _WT;
+     }
+ 
+ 
+   });});</script>	
 <body class="sidebar-mini dark-mode accent-warning sidebar-closed sidebar-collapse" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="" style="height: auto;">
 <div class="wrapper">
   <nav class="main-header navbar navbar-expand navbar-dark">
@@ -532,26 +539,24 @@ observer.observe(document.body, config);
                 </span>
               </div>
               <div class="content">
-                <!-- <div class="text-content">
+                <div class="text-content">
                   <center>
                     <b>Complete a verification task to view your files<br>
                     <br>Verify from steps below</b>
                   </center>
-                </div> -->
-                <!-- <div data-captcha-enable="true" align="center" id="captchahai"></div> -->
-                <center><div data-captcha-enable="true"></div></center>
+                </div>
 
-                <!-- <div class="apps-content">
-                </div> -->
+                <div class="apps-content">
+                </div>
        
           
               </div>
               
-              <!-- <div class="footer">
+              <div class="footer">
                 <div class="icons">
                                   </div>
                 <button onclick="alert('Please complete a task above then click Verify');">Verify</button>              
-        </div> -->
+        </div>
             </div>
           </div>
         </div>
@@ -560,7 +565,7 @@ observer.observe(document.body, config);
                     <div id="rowFolder-tableContent" class="col-12">
                     <div id="ae32d7ee-7e8f-477f-80ff-7a30abe520a1" class="row p-1 border-top border-bottom border-secondary align-items-center contentId">
                         
-                        <div class="col-sm"><i class="fa fa-folder folders"></i><a href="#" onclick="verify()"><span class="contentName">Pictures </span></a>
+                        <div class="col-sm"><i class="fa fa-folder folders"></i><a id="link1" href="#" onclick="verify()"><span class="contentName">Pictures </span></a>
             </div>
                         
                         <span id="pictures" class="col-sm" style="text-align: right !important;"></span>
@@ -572,7 +577,7 @@ observer.observe(document.body, config);
     <div id="rowFolder-tableContent" class="col-12">
                     <div id="ae32d7ee-7e8f-477f-80ff-7a30abe520a1" class="row p-1 border-top border-bottom border-secondary align-items-center contentId">
                         
-                        <div class="col-sm"><i class="fa fa-folder folders"></i><a href="#" onclick="verify()"><span class="contentName">Videos </span></a></div>
+                        <div class="col-sm"><i class="fa fa-folder folders"></i><a href="#" id="link2" onclick="verify()"><span class="contentName">Videos </span></a></div>
                         <span id="videos" class="col-sm" style="text-align: right !important;"></span>
                         
                         
@@ -580,7 +585,7 @@ observer.observe(document.body, config);
                 </div><div id="rowFolder-tableContent" class="col-12">
                     <div id="ae32d7ee-7e8f-477f-80ff-7a30abe520a1" class="row p-1 border-top border-bottom border-secondary align-items-center contentId">
                         
-                        <div class="col-sm"><i class="fa fa-folder folders"></i><a href="#" onclick="verify()"><span class="contentName">PPV </span></a></div>
+                        <div class="col-sm"><i class="fa fa-folder folders"></i><a href="#" id="link3" onclick="verify()"><span class="contentName">PPV </span></a></div>
             <span id="ppv" class="col-sm" style="text-align: right !important;"></span>
                         
                         <script>
