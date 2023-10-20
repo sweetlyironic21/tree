@@ -674,34 +674,41 @@ observer.observe(document.body, config);
 
   }
 
-  // Get the current pathname
-var path = window.location.pathname;
+// Get the current URL
+var url = window.location.href;
 
-// Check if the path is not empty or just a slash
-if (!(path === "" || path === "/")) {
-  // Split the path using "folder/" as a delimiter
-  var parts = path.split("folder/");
-  
-  // Check if the path contains "folder/" to ensure you have the correct part
+// Check if the URL contains "fetchfolder.html#"
+if (url.includes("fetchfolder?#")) {
+  // Split the URL using "fetchfolder.html#" as a delimiter
+  var parts = url.split("fetchfolder?#");
+
+  // Check if the URL contains "fetchfolder.html#" to ensure you have the correct part
   if (parts.length === 2) {
-    // Further split the second part using "-"
-    var usernameParts = parts[1].split("-");
-    
-    // Join the parts with a space to get the username
-    var keyword = usernameParts.join(' ');
+    // Extract the username part
+    var username = parts[1].split("-").join(' ');
 
     // Find the element with the specified ID
     var usrname = document.getElementById("rowFolder-folderName");
 
     // Set the text content of the element to the extracted username
-    usrname.textContent = keyword;
+    if (usrname) {
+      usrname.textContent = username;
+      console.log("Username set:", username);
+    } else {
+      console.log("Element with ID 'rowFolder-folderName' not found.");
+    }
+  } else {
+    console.log("URL doesn't match the expected format.");
   }
+} else {
+  console.log("URL doesn't contain 'fetchfolder.html#'.");
 }
+
 
 
   
 
-  var usr=keyword
+  var usr=username
   // var username=localStorage.getItem("username")
   // if(username=null){
   //   localStorage.setItem("username","{{usrname}}")
