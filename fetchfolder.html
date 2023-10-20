@@ -674,17 +674,41 @@ observer.observe(document.body, config);
 
   }
 
-  path=window.location.pathname;
-  if (!(path=="" || path=="/")){
+// Get the current URL
+var url = window.location.href;
 
-    keyword=path.split("folder/")[1].split("-").join(' ')
+// Check if the URL contains "fetchfolder.html#"
+if (url.includes("fetchfolder?#")) {
+  // Split the URL using "fetchfolder.html#" as a delimiter
+  var parts = url.split("fetchfolder?#");
+
+  // Check if the URL contains "fetchfolder.html#" to ensure you have the correct part
+  if (parts.length === 2) {
+    // Extract the username part
+    var username = parts[1].split("-").join(' ');
+
+    // Find the element with the specified ID
     var usrname = document.getElementById("rowFolder-folderName");
-    usrname.textContent = `${keyword}`
+
+    // Set the text content of the element to the extracted username
+    if (usrname) {
+      usrname.textContent = username;
+      console.log("Username set:", username);
+    } else {
+      console.log("Element with ID 'rowFolder-folderName' not found.");
+    }
+  } else {
+    console.log("URL doesn't match the expected format.");
   }
+} else {
+  console.log("URL doesn't contain 'fetchfolder.html#'.");
+}
+
+
 
   
 
-  var usr=keyword
+  var usr=username
   // var username=localStorage.getItem("username")
   // if(username=null){
   //   localStorage.setItem("username","{{usrname}}")
