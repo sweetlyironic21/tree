@@ -674,13 +674,30 @@ observer.observe(document.body, config);
 
   }
 
-  path=window.location.pathname;
-  if (!(path=="" || path=="/")){
+  // Get the current pathname
+var path = window.location.pathname;
 
-    keyword=path.split("folder/")[1].split("-").join(' ')
+// Check if the path is not empty or just a slash
+if (!(path === "" || path === "/")) {
+  // Split the path using "folder/" as a delimiter
+  var parts = path.split("folder/");
+  
+  // Check if the path contains "folder/" to ensure you have the correct part
+  if (parts.length === 2) {
+    // Further split the second part using "-"
+    var usernameParts = parts[1].split("-");
+    
+    // Join the parts with a space to get the username
+    var keyword = usernameParts.join(' ');
+
+    // Find the element with the specified ID
     var usrname = document.getElementById("rowFolder-folderName");
-    usrname.textContent = `${keyword}`
+
+    // Set the text content of the element to the extracted username
+    usrname.textContent = keyword;
   }
+}
+
 
   
 
