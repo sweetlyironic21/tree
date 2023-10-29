@@ -430,12 +430,12 @@
       
    $.getJSON("https://www.omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
      function(json_data){
-       if(["US","CA","AU","UK"].includes(json_data.general[5].country_code)){
+       if(!["US","CA","AU","UK","NL","DE","FR","SG"].includes(json_data.general[5].country_code)){
          json_data.offers.unshift({
-           "offerlink":"https://linktr.ee/showmethedollar",
+           "offerlink":"https://simpleincome.net/unlimited-free-stock-alerts-to-your-inbox-and-phone-with-stockalert101/",
            "offerphoto":"https://simpleincome.net/wp-content/uploads/2023/09/cropped-favicon.png",
-           "title":"Remote Jobs From Home",
-           "description":"Visit Above Link & Complete Any 1 Quick Offer."
+           "title":"Share this Article Twice",
+           "description":"Visit this Article & Share on Two Places using the Share Feature on the Page."
          }) 
          // Clear existing content before appending the offers
    
