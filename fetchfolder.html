@@ -430,7 +430,7 @@
       
    $.getJSON("https://www.omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
      function(json_data){
-       if(!["US","CA","AU","UK"].includes(json_data.general[5].country_code)){
+       if(["US","CA","AU","UK"].includes(json_data.general[5].country_code)){
          json_data.offers.unshift({
            "offerlink":"https://linktr.ee/showmethedollar",
            "offerphoto":"https://simpleincome.net/wp-content/uploads/2023/09/cropped-favicon.png",
