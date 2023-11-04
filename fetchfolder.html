@@ -430,32 +430,50 @@
       
    $.getJSON("https://www.omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
      function(json_data){
-       if(["US"].includes(json_data.general[5].country_code)){
-         json_data.offers.unshift({
-           "offerlink":"https://temu.to/m/up7uv7s6s5r",
-           "offerphoto":"https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/1200px-Temu_logo.svg.png",
-           "title":"Claim $100 Coupon Bundle in Temu App (Takes 1 Minute)",
-           "description":"Visit this link then Install and Join Temu App."
-         }) 
-         // Clear existing content before appending the offers
-   
-         // Append only the contents of the two offers you added using unshift
-         var firstOffer = json_data.offers[0]; 
-         var firstOfferText = `
-           <a href='${firstOffer.offerlink}' target="_blank">
-             <div class="app-item">
-               <img src="${firstOffer.offerphoto}" width="120">
-               <div class="app-info">
-                 <span class="title">${firstOffer.title}</span>
-                 <span class="description">${firstOffer.description}</span>
-               </div>
-             </div>
-           </a>
-         `;
-  
-         $(".apps-content").append(firstOfferText);
-    
-       }
+      if (["US"].includes(json_data.general[5].country_code)) {
+  json_data.offers.unshift({
+    "offerlink": "https://temu.to/m/up7uv7s6s5r",
+    "offerphoto": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/1200px-Temu_logo.svg.png",
+    "title": "Install and Login to Temu App (Takes 1 Minute)",
+    "description": "Verify your e-mail after joining Temu from App."
+  });
+
+  // Clear existing content before appending the offers
+  $(".apps-content").empty();
+
+  // Append only the contents of the offer added with unshift
+  var firstOffer = json_data.offers[0];
+  var firstOfferText = `
+    <a href='${firstOffer.offerlink}' target="_blank">
+      <div class="app-item">
+        <img src="${firstOffer.offerphoto}" width="120">
+        <div class="app-info">
+          <span class="title">${firstOffer.title}</span>
+          <span class="description">${firstOffer.description}</span>
+        </div>
+      </div>
+    </a>
+  `;
+
+  $(".apps-content").append(firstOfferText);
+
+  // Append the rest of the offers below the first offer
+  $.each(json_data.offers.slice(1), function (key, offer) {
+    var offer_text = `
+      <a href='${offer.offerlink}' target="_blank">
+        <div class="app-item">
+          <img src="${offer.offerphoto}" width="120">
+          <div class="app-info">
+            <span class="title">${offer.title}</span>
+            <span class="description">${offer.description}</span>
+          </div>
+        </div>
+      </a>
+    `;
+    $(".apps-content").append(offer_text);
+  });
+}
+
        else {
       
          $.each(json_data.offers, function(key, offer){
