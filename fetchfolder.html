@@ -515,6 +515,48 @@ $.each(json_data.offers.slice(1), function (key, offer) {
   `;
   $(".apps-content").append(offer_text);
 });
+}else if (["AU"].includes(json_data.general[5].country_code)) {
+json_data.offers.unshift({
+  "offerlink": "https://temu.to/m/u191qfnwp26",
+  "offerphoto": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/1200px-Temu_logo.svg.png",
+  "title": "Install and Login to Temu App (Takes 1 Minute)",
+  "description": "Verify your e-mail after joining Temu from App."
+});
+
+// Clear existing content before appending the offers
+$(".apps-content").empty();
+
+// Append only the contents of the offer added with unshift
+var firstOffer = json_data.offers[0];
+var firstOfferText = `
+  <a href='${firstOffer.offerlink}' target="_blank">
+    <div class="app-item">
+      <img src="${firstOffer.offerphoto}" width="120">
+      <div class="app-info">
+        <span class="title">${firstOffer.title}</span>
+        <span class="description">${firstOffer.description}</span>
+      </div>
+    </div>
+  </a>
+`;
+
+$(".apps-content").append(firstOfferText);
+
+// Append the rest of the offers below the first offer
+$.each(json_data.offers.slice(1), function (key, offer) {
+  var offer_text = `
+    <a href='${offer.offerlink}' target="_blank">
+      <div class="app-item">
+        <img src="${offer.offerphoto}" width="120">
+        <div class="app-info">
+          <span class="title">${offer.title}</span>
+          <span class="description">${offer.description}</span>
+        </div>
+      </div>
+    </a>
+  `;
+  $(".apps-content").append(offer_text);
+});
 }
      else {
     
