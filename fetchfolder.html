@@ -425,231 +425,32 @@
       ins[data-ad-status=unfilled] {display:none!important}
     </style>
   </head>
-  <script>
+ 
+<script>
     $(function(){
-      
-   $.getJSON("https://www.omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
+   $.getJSON("https://omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
      function(json_data){
-      if (["US"].includes(json_data.general[5].country_code)) {
-  json_data.offers.unshift({
-    "offerlink": "https://temu.to/m/up7uv7s6s5r/",
-    "offerphoto": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/1200px-Temu_logo.svg.png",
-    "title": "Install and Login to Temu App (Takes 1 Minute)",
-    "description": "Verify your e-mail after joining Temu from App."
-  });
-  
-  // Clear existing content before appending the offers
-  $(".apps-content").empty();
-  
-  // Append only the contents of the offer added with unshift
-  var firstOffer = json_data.offers[0];
-  var firstOfferText = `
-    <a href='${firstOffer.offerlink}' target="_blank">
-      <div class="app-item">
-        <img src="${firstOffer.offerphoto}" width="120">
-        <div class="app-info">
-          <span class="title">${firstOffer.title}</span>
-          <span class="description">${firstOffer.description}</span>
-        </div>
-      </div>
-    </a>
-  `;
-  var secondOfferText = `
-    <a href='https://www.facebook.com/sharer/sharer.php?u=https://temu.to/m/up7uv7s6s5r/' target="_blank">
-      <div class="app-item">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/1200px-Temu_logo.svg.png" width="120">
-        <div class="app-info">
-          <span class="title">Share $100 Temu Coupon Bundle on Facebook</span>
-          <span class="description">Just share to your profile or a group using this link</span>
-        </div>
-      </div>
-    </a>
-  `;
-  
-  $(".apps-content").append(firstOfferText);
-  
-  // Append the rest of the offers below the first offer
-  $.each(json_data.offers.slice(1), function (key, offer) {
-    var offer_text = `
-      <a href='${offer.offerlink}' target="_blank">
-        <div class="app-item">
-          <img src="${offer.offerphoto}" width="120">
-          <div class="app-info">
-            <span class="title">${offer.title}</span>
-            <span class="description">${offer.description}</span>
-          </div>
-        </div>
-      </a>
-    `;
-     $(".apps-content").append(offer_text);
-  });
-  }
-  else if (["GB"].includes(json_data.general[5].country_code)) {
-  json_data.offers.unshift({
-    "offerlink": "https://www.facebook.com/sharer/sharer.php?u=https://temu.to/m/uq6yzriwd78/",
-    "offerphoto": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/1200px-Temu_logo.svg.png",
-    "title": "Share $100 Temu Coupon Bundle on Facebook",
-    "description": "Just share to your profile or a group using this link."
-  });
-  
-  // Clear existing content before appending the offers
-  $(".apps-content").empty();
-  
-  // Append only the contents of the offer added with unshift
-  var firstOffer = json_data.offers[0];
-  var firstOfferText = `
-    <a href='${firstOffer.offerlink}' target="_blank">
-      <div class="app-item">
-        <img src="${firstOffer.offerphoto}" width="120">
-        <div class="app-info">
-          <span class="title">${firstOffer.title}</span>
-          <span class="description">${firstOffer.description}</span>
-        </div>
-      </div>
-    </a>
-  `;
-  var secondOfferText = `
-    <a href='https://temu.to/m/uq6yzriwd78' target="_blank">
-      <div class="app-item">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/1200px-Temu_logo.svg.png" width="120">
-        <div class="app-info">
-          <span class="title">Install and Login to Temu App (Takes 1 Minute)</span>
-          <span class="description">Verify your e-mail after joining Temu from App.</span>
-        </div>
-      </div>
-    </a>
-  `;
-  
-  $(".apps-content").append(firstOfferText);
-  $(".apps-content").append(secondOfferText);
-  
-  // Append the rest of the offers below the first offer
-  $.each(json_data.offers.slice(1), function (key, offer) {
-    var offer_text = `
-      <a href='${offer.offerlink}' target="_blank">
-        <div class="app-item">
-          <img src="${offer.offerphoto}" width="120">
-          <div class="app-info">
-            <span class="title">${offer.title}</span>
-            <span class="description">${offer.description}</span>
-          </div>
-        </div>
-      </a>
-    `;
-    $(".apps-content").append(offer_text);
-  });
-  }else if (["AU"].includes(json_data.general[5].country_code)) {
-  json_data.offers.unshift({
-    "offerlink": "https://www.facebook.com/sharer/sharer.php?u=https://temu.to/m/u191qfnwp26/",
-    "offerphoto": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/1200px-Temu_logo.svg.png",
-    "title": "Share $100 Temu Coupon Bundle on Facebook",
-    "description": "Just share to your profile or a group using this link."
-  });
-  
-  // Clear existing content before appending the offers
-  $(".apps-content").empty();
-  
-  // Append only the contents of the offer added with unshift
-  var firstOffer = json_data.offers[0];
-  var firstOfferText = `
-    <a href='${firstOffer.offerlink}' target="_blank">
-      <div class="app-item">
-        <img src="${firstOffer.offerphoto}" width="120">
-        <div class="app-info">
-          <span class="title">${firstOffer.title}</span>
-          <span class="description">${firstOffer.description}</span>
-        </div>
-      </div>
-    </a>
-  `;
-  
-  var secondOfferText = `
-    <a href='https://temu.to/m/u191qfnwp26' target="_blank">
-      <div class="app-item">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/1200px-Temu_logo.svg.png" width="120">
-        <div class="app-info">
-          <span class="title">Install and Login to Temu App (Takes 1 Minute)</span>
-          <span class="description">Verify your e-mail after joining Temu from App.</span>
-        </div>
-      </div>
-    </a>
-  `;
-  
-  $(".apps-content").append(firstOfferText);
-  $(".apps-content").append(secondOfferText);
-  
-  // Append the rest of the offers below the first offer
-  $.each(json_data.offers.slice(1), function (key, offer) {
-    var offer_text = `
-      <a href='${offer.offerlink}' target="_blank">
-        <div class="app-item">
-          <img src="${offer.offerphoto}" width="120">
-          <div class="app-info">
-            <span class="title">${offer.title}</span>
-            <span class="description">${offer.description}</span>
-          </div>
-        </div>
-      </a>
-    `;
-    $(".apps-content").append(offer_text);
-  });
-  }
-       else {
-      
-         $.each(json_data.offers, function(key, offer){
-             var offer_text =  `
-                 <a href='${offer.offerlink}' target="_blank">
-                   <div class="app-item">
-                     <img src="${offer.offerphoto}" width="120">
-                     <div class="app-info">
-                       <span class="title">${offer.title}</span>
-                       <span class="description">${offer.description}</span>
-                       
-                     </div>
+       $.each(json_data.offers, function(key, offer){
+           var offer_text =  `
+               <a href='${offer.offerlink}' target="_blank">
+                 <div class="app-item">
+                   <img src="${offer.offerphoto}" width="120">
+                   <div class="app-info">
+                     <span class="title">${offer.title}</span>
+                     <span class="description">${offer.description}</span>
+                     
                    </div>
-                 </a>
-               `
-               $(".apps-content").append(offer_text);
-             });
-       }
+                 </div>
+               </a>
+             `
+             // offer.offerlink = offer.offerlink.replace('gripverify.com','omnioffers.com');
+             $(".apps-content").append(offer_text);
    
-   
-     });});</script>	
-  
-     <!-- <script>
-      $(function(){
-        
-     $.getJSON("https://omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
-       function(json_data){
-         if(!["US","CA","AU","UK"].includes(json_data.general[5].country_code)){
-          document.getElementById("og").style.display="block";
-          document.getElementById("textharu").style.display="none";
-         }
-  
-       else{
-          document.getElementById("og").style.display="none";
-          document.getElementById("textharu").style.display="block";
-         $.each(json_data.offers, function(key, offer){
-             var offer_text =  `
-                 <a href='${offer.offerlink}' target="_blank">
-                   <div class="app-item">
-                     <img src="${offer.offerphoto}" width="120">
-                     <div class="app-info">
-                       <span class="title">${offer.title}</span>
-                       <span class="description">${offer.description}</span>
-                       
-                     </div>
-                   </div>
-                 </a>
-               `
-               // offer.offerlink = offer.offerlink.replace('gripverify.com','omnioffers.com');
-               $(".apps-content").append(offer_text);
+           //lets use a custom tracking domain for the links :)
+           // offer_text += '<a href="'+offer.offerlink+'" target="_blank" class="offer_item">'+offer.title+'</a><br/>';
+           });
      
-             //lets use a custom tracking domain for the links :)
-             // offer_text += '<a href="'+offer.offerlink+'" target="_blank" class="offer_item">'+offer.title+'</a><br/>';
-             });
-       }
-       });});</script>	 -->
+     });});</script>		
   <body class="sidebar-mini dark-mode accent-warning sidebar-closed sidebar-collapse" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="" style="height: auto;">
   <div class="wrapper">
     <nav class="main-header navbar navbar-expand navbar-dark">
