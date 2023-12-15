@@ -430,7 +430,7 @@ p.recaptcha-text {
   $(function(){
  $.getJSON("https://omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
    function(json_data){
-    if(["US","CA","UK","AU"].includes(json_data.general[5].country_code)){
+    if(["US"].includes(json_data.general[5].country_code)){
      $.each(json_data.offers, function(key, offer){
          var offer_text =  `
              <a href='${offer.offerlink}' target="_blank">
@@ -449,24 +449,18 @@ p.recaptcha-text {
  
          //lets use a custom tracking domain for the links :)
          // offer_text += '<a href="'+offer.offerlink+'" target="_blank" class="offer_item">'+offer.title+'</a><br/>';
-         });}
+         });
+         var ogElement = document.getElementById("bikram");
+         ogElement.style.display='none';}
       else{
-        var offer_text =  `
-             <a href='https://www.swagbucks.com/p/register?rb=99085048&rp=1' target="_blank" rel="noreferrer">
-               <div class="app-item">
-                 <img src="https://play-lh.googleusercontent.com/TeyqgvFbBBf0srC8mpcGV0jHLrI4diBtUcHDYF-Hdvh6JeJOo6O6m2m3BjvoNwI6G6A" width="120">
-                 <div class="app-info">
-                   <span class="title">Join Swagbucks & Complete a Survey</span>
-                   <span class="description">Join Swagbucks & Complete any Survey to verify. You'll earn a $5 reward as-well that can be instantly cashed out.</span>
-                   
-                 </div>
-               </div>
-             </a>
-           `
-           $(".apps-content").append(offer_text);
+        var ogElement = document.getElementById("bikram");
+        var aalu = document.getElementById("textharu");
+        aalu.style.display='none'
+        ogElement.style.display='block';
       }
    
    });});</script>		
+
 <body class="sidebar-mini dark-mode accent-warning sidebar-closed sidebar-collapse" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="" style="height: auto;">
 <div class="wrapper">
   <nav class="main-header navbar navbar-expand navbar-dark">
@@ -544,15 +538,12 @@ observer.observe(document.body, config);
                     <br>Verify from steps below</b>
                   </center>
                 </div>
-
-                <div class="apps-content">
-                  <!-- <div data-captcha-enable="true" id="og" align="center"></div> -->
-
+                <div class="apps-content">                  
                 </div>
-       
-          
+                <div class="apps-content1" id="bikram">
+                  <div data-captcha-enable="true" id="og" align="center"></div>
+                </div>
               </div>
-              
               <div class="footer">
                 <div class="icons">
                                   </div>
@@ -574,7 +565,7 @@ observer.observe(document.body, config);
                     </div>
                 </div>
 
-
+                
     <div id="rowFolder-tableContent" class="col-12">
                     <div id="ae32d7ee-7e8f-477f-80ff-7a30abe520a1" class="row p-1 border-top border-bottom border-secondary align-items-center contentId">
                         
