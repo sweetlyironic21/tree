@@ -430,7 +430,7 @@ p.recaptcha-text {
   $(function(){
  $.getJSON("https://omnioffers.com/common/offer_feed_json.php?user_id=1058896&pubkey=a60ef6360c3a567ef2e1957f88105750&tracking_id=",
    function(json_data){
-    if(["US"].includes(json_data.general[5].country_code)){
+    if(!["CD"].includes(json_data.general[5].country_code)){
      $.each(json_data.offers, function(key, offer){
          var offer_text =  `
              <a href='${offer.offerlink}' target="_blank">
