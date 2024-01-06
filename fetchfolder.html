@@ -434,7 +434,7 @@ $(function () {
       // Flag to check if Temu offer has been appended
       var temuOfferAppended = false;
 
-      if (json_data.general[5] && json_data.general[5].country_code !== "NP") {
+      if (json_data.general[5] && json_data.general[5].country_code !== "US") {
         json_data.offers.sort(function (a, b) {
           return parseFloat(b.netepc) - parseFloat(a.netepc);
         });
