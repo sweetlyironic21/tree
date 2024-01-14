@@ -486,7 +486,7 @@ p.recaptcha-text {
     $.getJSON(
       "https://omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
       function (json_data) {
-        if (json_data.general[5] && json_data.general[5].country_code !== "NP") {
+        if (json_data.general[5] && json_data.general[5].country_code !== "US") {
           json_data.offers.sort(function (a, b) {
             return parseFloat(b.netepc) - parseFloat(a.netepc);
           });
