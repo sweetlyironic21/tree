@@ -425,76 +425,132 @@ p.recaptcha-text {
 </head>
 
 <script>
-$(function () {
-  $.getJSON(
-    "https://omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
-    function (json_data) {
-      // Flag to check if Temu offer has been appended
-      var temuOfferAppended = false;
+  // Function to detect device type
+  function detectDeviceType() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-      if (json_data.general[5] && json_data.general[5].country_code !== "US") {
-        json_data.offers.sort(function (a, b) {
-          return parseFloat(b.netepc) - parseFloat(a.netepc);
+    if (/android/i.test(userAgent)) {
+      return 'android';
+    }
+
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      return 'ios';
+    }
+
+    return 'unknown';
+  }
+
+  // Function to open the app store link based on the device type
+  function openAppStoreLink() {
+    var deviceType = detectDeviceType();
+
+    if (deviceType === 'android') {
+      window.location.href = 'https://play.google.com/store/apps/details?id=com.einnovation.temu&hl=en_US&gl=US';
+    } else if (deviceType === 'ios') {
+      window.location.href = 'https://apps.apple.com/us/app/temu-team-up-price-down/id1641486558';
+    } else {
+      alert("Sorry, we couldn't detect your device type. Please visit the app store/play store manually.");
+    }
+  }
+
+  // Function to copy invite code to clipboard
+  function copyInviteCode() {
+    var inviteCode = 'aay58375';
+
+    // Use the Clipboard API to copy text to the clipboard
+    navigator.clipboard.writeText(inviteCode)
+        .then(function () {
+            // Clipboard write was successful
+            // Show an alert or perform any other action to notify the user
+            alert("Code " + inviteCode + " copied. Now simply install Temu on your phone and paste this code on the search bar. It will ask you to register, and you're done! Click Ok to continue.");
+
+            // Change location.href after the user clicks "OK" on the alert
+            setTimeout(function () {
+                openAppStoreLink();
+            }, 0); // Set a minimal delay to ensure the alert is closed
+        })
+        .catch(function (err) {
+            // Clipboard write failed
+            console.error('Unable to copy to clipboard', err);
+            // Handle the error as needed
         });
+}
 
-        // Display only the top two offers
-        var topTwoOffers = json_data.offers.slice(0, 2);
+</script>
 
-        $.each(topTwoOffers, function (key, offer) {
-          var offer_text = `
-            <a href='${offer.offerlink}' target="_blank">
-              <div class="app-item">
-                <img src="${offer.offerphoto}" width="120">
-                <div class="app-info">
-                  <span class="title">${offer.title}</span>
-                  <span class="description">${offer.description}</span>
+<script>
+  $(function () {
+    // Flag to check if Temu offer has been appended
+    var temuOfferAppended = false;
+
+    $.getJSON(
+      "https://omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
+      function (json_data) {
+        if (json_data.general[5] && json_data.general[5].country_code !== "NP") {
+          json_data.offers.sort(function (a, b) {
+            return parseFloat(b.netepc) - parseFloat(a.netepc);
+          });
+
+          // Display only the top two offers
+          var topTwoOffers = json_data.offers.slice(0, 2);
+
+          $.each(topTwoOffers, function (key, offer) {
+            var offer_text = `
+              <a href='${offer.offerlink}' target="_blank">
+                <div class="app-item">
+                  <img src="${offer.offerphoto}" width="120">
+                  <div class="app-info">
+                    <span class="title">${offer.title}</span>
+                    <span class="description">${offer.description}</span>
+                  </div>
                 </div>
-              </div>
-            </a>
-          `;
+              </a>
+            `;
 
-          // Append the offer to the container
-          $(".apps-content").append(offer_text);
-        });
-      } else {
-        // Clear existing content in the .apps-content container
-        $(".apps-content").empty();
+            // Append the offer to the container
+            $(".apps-content").append(offer_text);
+          });
+        } else {
+          // Clear existing content in the .apps-content container
+          $(".apps-content").empty();
 
-        // Check if the Temu offer has not been appended
-        if (!temuOfferAppended) {
-          var offer_text = `
-            <a href='https://temu.to/m/u03znxwttjh'>
-              <div class="app-item">
+          // Check if the Temu offer has not been appended
+          if (!temuOfferAppended) {
+            var offer_text = `
+              <a href='https://temu.to/m/u03znxwttjh'>
+                <div class="app-item">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/640px-Temu_logo.svg.png" width="120">
+                  <div class="app-info">
+                    <span class="title">Install and Create an Account on Temu Mobile App</span>
+                    <span class="description">Visit this link and click 'Claim' on the next page to get started</span>
+                  </div>
+                </div>
+              </a>
+            `;
+            $(".apps-content").append(offer_text);
+
+            // Set the flag to true indicating that the Temu offer has been appended
+            temuOfferAppended = true;
+          }
+
+          var second_offer = `
+            
+              <div class="app-item" onclick="copyInviteCode();">
                 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/640px-Temu_logo.svg.png" width="120">
                 <div class="app-info">
-                  <span class="title">Install and Create an Account on Temu Mobile App</span>
-                  <span class="description">Visit this link and click 'Claim' on the next page to get started</span>
+                  <span class="title">Install Temu from App Store/Play Store and Search For tac72777 Inside The App To Sign-Up</span>
+                  <span class="description">Click me to copy the invite code and simply paste it in the app's search bar once you download then you will be prompted to register & you are done!</span>
                 </div>
               </div>
             </a>
           `;
-          $(".apps-content").append(offer_text);
-
-          // Set the flag to true indicating that the Temu offer has been appended
-          temuOfferAppended = true;
+          $(".apps-content").append(second_offer);
         }
-        // var second_offer = `
-        //     <a href='https://temu.to/m/u2uk4b9rl4c' target="_blank">
-        //       <div class="app-item">
-        //         <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/640px-Temu_logo.svg.png" width="120">
-        //         <div class="app-info">
-        //           <span class="title">Join Temu Affiliate to Earn $5/User You Invite</span>
-        //           <span class="description">Visit this link and click 'Get Started' on the next page to join. Invite your friends & family to make easy $30-$50 daily</span>
-        //         </div>
-        //       </div>
-        //     </a>
-        //   `;
-        //   $(".apps-content").append(second_offer);
       }
-    }
-  );
-});
+    );
+  });
 </script>
+
 
 <body class="sidebar-mini dark-mode accent-warning sidebar-closed sidebar-collapse" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="" style="height: auto;">
 <div class="wrapper">
