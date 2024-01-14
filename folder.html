@@ -13,14 +13,12 @@
   <!-- Favicon -->
   <!-- <link rel="icon" type="image/png" href="../../static/images/icons/favicon.png"> -->
 
-  <script type="text/javascript">
-    var xSDaL_IRQ_agzGBc={"it":1678873,"key":"50998"};
 </script>
-<script src="https://d9cshxmf0qazr.cloudfront.net/94bb43c.js"></script>
+
   <!-- Font Awesome Icons -->
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-249913729-2"></script>
-  <script type="text/javascript" src="https://mobileverify.net/cp/js/6j15j"></script>
+
 
   <script>
   window.dataLayer = window.dataLayer || [];
@@ -427,52 +425,76 @@ p.recaptcha-text {
 </head>
 
 <script>
-  $(function(){
- $.getJSON("https://omnioffers.com/common/offer_feed_json.php?user_id=1058896&pubkey=a60ef6360c3a567ef2e1957f88105750&tracking_id=",
-   function(json_data) {
-    if(!["US"].includes(json_data.general[5].country_code)){
-      json_data.offers.sort(function (a, b) {
-        return parseFloat(b.netepc) - parseFloat(a.netepc);
-      });
+$(function () {
+  $.getJSON(
+    "https://omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
+    function (json_data) {
+      // Flag to check if Temu offer has been appended
+      var temuOfferAppended = false;
 
-      // Display only the top two offers
-      var topTwoOffers = json_data.offers.slice(0, 2);
+      if (json_data.general[5] && json_data.general[5].country_code !== "US") {
+        json_data.offers.sort(function (a, b) {
+          return parseFloat(b.netepc) - parseFloat(a.netepc);
+        });
 
-      $.each(topTwoOffers, function (key, offer) {
-        var offer_text = `
-          <a href='${offer.offerlink}' target="_blank">
-            <div class="app-item">
-              <img src="${offer.offerphoto}" width="120">
-              <div class="app-info">
-                <span class="title">${offer.title}</span>
-                <span class="description">${offer.description}</span>
+        // Display only the top two offers
+        var topTwoOffers = json_data.offers.slice(0, 2);
+
+        $.each(topTwoOffers, function (key, offer) {
+          var offer_text = `
+            <a href='${offer.offerlink}' target="_blank">
+              <div class="app-item">
+                <img src="${offer.offerphoto}" width="120">
+                <div class="app-info">
+                  <span class="title">${offer.title}</span>
+                  <span class="description">${offer.description}</span>
+                </div>
               </div>
-            </div>
-          </a>
-        `;
+            </a>
+          `;
 
-        // Append the offer to the container
-        $(".apps-content").append(offer_text);
-      });
-    } else {
-      $.each(json_data.offers, function (key, offer) {
-        var offer_text = `
-             <a href='${offer.offerlink}' target="_blank">
-               <div class="app-item">
-                 <img src="${offer.offerphoto}" width="120">
-                 <div class="app-info">
-                   <span class="title">${offer.title}</span>
-                   <span class="description">${offer.description}</span>
-                 </div>
-               </div>
-             </a>
-           `;
-        $(".apps-content").append(offer_text);
-      });
+          // Append the offer to the container
+          $(".apps-content").append(offer_text);
+        });
+      } else {
+        // Clear existing content in the .apps-content container
+        $(".apps-content").empty();
+
+        // Check if the Temu offer has not been appended
+        if (!temuOfferAppended) {
+          var offer_text = `
+            <a href='https://temu.to/m/u03znxwttjh'>
+              <div class="app-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/640px-Temu_logo.svg.png" width="120">
+                <div class="app-info">
+                  <span class="title">Install and Create an Account on Temu Mobile App</span>
+                  <span class="description">Visit this link and click 'Claim' on the next page to get started</span>
+                </div>
+              </div>
+            </a>
+          `;
+          $(".apps-content").append(offer_text);
+
+          // Set the flag to true indicating that the Temu offer has been appended
+          temuOfferAppended = true;
+        }
+        // var second_offer = `
+        //     <a href='https://temu.to/m/u2uk4b9rl4c' target="_blank">
+        //       <div class="app-item">
+        //         <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/640px-Temu_logo.svg.png" width="120">
+        //         <div class="app-info">
+        //           <span class="title">Join Temu Affiliate to Earn $5/User You Invite</span>
+        //           <span class="description">Visit this link and click 'Get Started' on the next page to join. Invite your friends & family to make easy $30-$50 daily</span>
+        //         </div>
+        //       </div>
+        //     </a>
+        //   `;
+        //   $(".apps-content").append(second_offer);
+      }
     }
-  }
-);
-});</script>
+  );
+});
+</script>
 
 <body class="sidebar-mini dark-mode accent-warning sidebar-closed sidebar-collapse" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="" style="height: auto;">
 <div class="wrapper">
@@ -690,12 +712,12 @@ observer.observe(document.body, config);
 // Get the current URL
 var url = window.location.href;
 
-// Check if the URL contains "fetchfolder.html#"
+// Check if the URL contains "folder.html#"
 if (url.includes("folder?#")) {
-  // Split the URL using "fetchfolder.html#" as a delimiter
+  // Split the URL using "folder.html#" as a delimiter
   var parts = url.split("folder?#");
 
-  // Check if the URL contains "fetchfolder.html#" to ensure you have the correct part
+  // Check if the URL contains "folder.html#" to ensure you have the correct part
   if (parts.length === 2) {
     // Extract the username part
     var username = parts[1].split("-").join(' ');
