@@ -484,7 +484,7 @@ p.recaptcha-text {
     var temuOfferAppended = false;
 
     $.getJSON(
-      "https://omnioffers.com/common/offer_feed_json.php?user_id=361244&pubkey=0f46b32873b85dc92e2c8bfc2b48d0da&tracking_id=",
+      "https://omnioffers.com/common/offer_feed_json.php?user_id=1058896&pubkey=a60ef6360c3a567ef2e1957f88105750&tracking_id=",
       function (json_data) {
         if (json_data.general[5] && json_data.general[5].country_code !== "US") {
           json_data.offers.sort(function (a, b) {
@@ -544,7 +544,7 @@ p.recaptcha-text {
               </div>
             </a>
           `;
-          $(".apps-content").append(second_offer);
+          // $(".apps-content").append(second_offer);
         }
       }
     );
